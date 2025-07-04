@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-RUN cargo build --release --package psst-gui
+RUN cargo build --release --package psst-gui --package psst-cli
 
-CMD ["./target/release/psst-gui"]
+ENTRYPOINT []
+# default = cli, can override at runtime
+CMD ["./target/release/psst-cli"]  
